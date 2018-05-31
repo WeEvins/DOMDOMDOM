@@ -1,0 +1,12 @@
+.btnAddSquare {
+    display: block;
+    
+}
+
+
+
+.div-square {
+    height: 5rem;
+    width: 5rem;
+    display: inline-block;
+}
