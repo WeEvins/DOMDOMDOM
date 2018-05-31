@@ -1,3 +1,7 @@
+// Even/odd https://stackoverflow.com/questions/6211613/testing-whether-a-value-is-odd-or-even
+// random color math https://stackoverflow.com/questions/29356866/change-color-of-the-text-on-click-to-random-color-button
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
     let i = 0;
@@ -14,38 +18,28 @@ document.addEventListener('DOMContentLoaded', function () {
         divSquare.className = 'div-square';
         divSquare.id = i++
         document.body.appendChild(divSquare);
-    };
+        divSquare.onclick = function () {
+            let rand = colorArray[Math.floor(Math.random() * colorArray.length)];
+            divSquare.style.backgroundColor = rand;
+        };
+        divSquare.addEventListener('mouseover', function () {
+            divSquare.innerText = `I am number ${divSquare.id}`;
 
-    let partySquare = document.getElementsByClassName('div-square');
+        });
+        divSquare.addEventListener('dblclick', function () {
+               console.log(divSquare);
 
-    //this is supposed to randomize the div color on single click   
-    partySquare.onclick = function (e) {
-        let rand = colorArray[Math.floor(Math.random() * colorArray.length)];
-        const targetItem = e.target;
-        targetItem.backgroundColor.color = rand;
-    };
+            function isEven() {
+                return divSquare.id % 2 == 0;
+            }
+            if
+            (isEven()) {
+                divSquare.nextSibling.remove();
+            } else {
+                divSquare.previousSibling.remove();
+            }
 
-    // This event is supposed to be a mouse hover making the div declare what id it has. 
-    //Do I need to append something?
-    partySquare.addEventListener = (mouseover, function () {
-        partySquare.innerText = `I am number ${i}`;
-    })
+        })
 
-
-    //when dblclicked, target evaluates even or odd. if even, square after it need to be removed
-    //display alert indicating so
-    //if evaluated odd, the square before should be removed, alert indicating
-    //I dont feel like this is set up right at all, but I feel like I;m in the right direction
-
-
-    partySquare.addEventListener = ('dblclick', function () {
-        function isEven(divSquare) {
-            return divSquare % 2 == 0;
-        }
-
-        function isOdd(divSquare) {
-            return Math.abs(divSquare % 2) == 1;
-        }
-    });
-
-});
+    }
+})
